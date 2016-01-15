@@ -13,7 +13,7 @@ soup = BeautifulSoup(memText.text,'lxml')
 
 attr = {'id':'3'}
 name = soup.find('tr',id='3')
-name = name.find_all('td')[1].contents[0]
+name = name.findAll('td')[1].contents[0]
 print "Welcome " + name + "."
 
 #report
@@ -22,7 +22,7 @@ regis = session.get('https://std.regis.ku.ac.th/_Student_RptKu.php?',params=attr
 soup = BeautifulSoup(regis.text,'lxml')
 s = soup.find_all('table')
 s = s[3]
-s = s.find_all('tr')
+s = s.findAll('tr')
 for i in range(4,len(s)-5):
-	ct = s[i].find_all('td')
-	print ct[1].contents[0] + '\t' +ct[2].contents[0]
+	ct = s[i].findAll('td')
+	print ct[1].contents[0] + '\t' + ct[2].contents[0]
