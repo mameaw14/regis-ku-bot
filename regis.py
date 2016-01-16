@@ -20,9 +20,8 @@ print "Welcome " + name + "."
 attr = {'mode':'PRTKU2'}
 regis = session.get('https://std.regis.ku.ac.th/_Student_RptKu.php?',params=attr)
 soup = BeautifulSoup(regis.text,'lxml')
-s = soup.find_all('table')
-s = s[3]
+s = soup.findAll('table')[3].findAll('table')[0]
 s = s.findAll('tr')
-for i in range(4,len(s)-5):
+for i in range(1,len(s)-1):
 	ct = s[i].findAll('td')
 	print ct[1].contents[0] + '\t' + ct[2].contents[0]
